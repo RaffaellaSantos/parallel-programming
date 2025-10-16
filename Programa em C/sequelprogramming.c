@@ -13,6 +13,9 @@ void main(void) {
     if(file == NULL){
         printf("Erro ao abrir arquivo!");
     }
+
+    fprintf(file, "\xEF\xBB\xBF");
+    fprintf(file, "Tamanho da matriz, Tempo (milisegundos)\n");
     
     for (int i=0; i < num_tam; i++){
         int TAM_MATRIZ = TAM_MATRIZES[i];
@@ -56,8 +59,6 @@ void main(void) {
         useconds = end.tv_usec - start.tv_usec;
         mtime = ((seconds) * 1000 + useconds/1000.0) + 0.5;
 
-        fprintf(file, "\xEF\xBB\xBF");
-        fprintf(file, "Tamanho da matriz, Tempo (milisegundos)\n");
         fprintf(file, "%d, %lu\n", TAM_MATRIZ, mtime);
 
         // Exibir tempo e matriz produto
