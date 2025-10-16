@@ -1,50 +1,76 @@
 #include <sys/time.h>
 #include <stdio.h>
-
-#define TAM_MATRIZ 10
-
-int m1[TAM_MATRIZ][TAM_MATRIZ],
-    m2[TAM_MATRIZ][TAM_MATRIZ],
-    prod[TAM_MATRIZ][TAM_MATRIZ];
+#include <stdlib.h>
 
 void main(void) {
     struct timeval start, end;
     long mtime, seconds, useconds;
-    int i=0, j=0;
+    int TAM_MATRIZES[] = {10, 100, 1000};
+    int num_tam = sizeof(TAM_MATRIZES) / sizeof(TAM_MATRIZES[0]);
 
-    for (i=0; i < TAM_MATRIZ; i++){
-        for (j=0; j < TAM_MATRIZ; j++){
-            m1[i][j] = i;
-            m2[i][j] = 2;
-            prod[i][j] = 0;
-        }
+    FILE *file = fopen("resultados paralelo.csv", "w");
+    if(file == NULL){
+        printf("Erro ao abrir arquivo!");
     }
+    
+    for (int i=0; i < num_tam; i++){
+        int TAM_MATRIZ = TAM_MATRIZES[i];
 
-    gettimeofday(&start, NULL);
+        // Declaração das matrizes
+        int **m1 = malloc(TAM_MATRIZ * sizeof(int *));
+        int **m2 = malloc(TAM_MATRIZ * sizeof(int *));
+        int **prod = malloc(TAM_MATRIZ * sizeof(int *));
 
-    for (i=0; i < TAM_MATRIZ; i++){
-        for (j=0; j < TAM_MATRIZ; j++){
-            for ( int x=0; x < TAM_MATRIZ; x++){
-                prod[i][j] += m1[i][x] * m2[x][j];
+        for (int row = 0; row < TAM_MATRIZ; row++) {
+            m1[row] = malloc(TAM_MATRIZ * sizeof(int));
+            m2[row] = malloc(TAM_MATRIZ * sizeof(int));
+            prod[row] = malloc(TAM_MATRIZ * sizeof(int));
+        }
+
+        // Inicializando matrizes
+        for (int j=0; j < TAM_MATRIZ; j++){
+            for (int k=0; k < TAM_MATRIZ; k++){
+                m1[j][k] = j;
+                m2[j][k] = 2;
+                prod[j][k] = 0;
             }
         }
-    }
 
-    gettimeofday(&end, NULL);
+        // Inicio do tempo
+        gettimeofday(&start, NULL);
 
-    seconds = end.tv_sec - start.tv_sec;
-    useconds = end.tv_usec - start.tv_usec;
-    mtime = ((seconds) * 1000 + useconds/1000.0) + 0.5;
-
-    printf("Tempo transcorrido: %lu milisegundos\n", mtime);
-
-    for (i=0; i < TAM_MATRIZ; i++){
-        for (j=0; j < TAM_MATRIZ; j++){
-            printf("%d", prod[i][j]);
+        for (int linha=0; linha < TAM_MATRIZ; linha++){
+            for (int coluna=0; coluna < TAM_MATRIZ; coluna++){
+                for ( int x=0; x < TAM_MATRIZ; x++){
+                    prod[linha][coluna] += m1[linha][x] * m2[x][coluna];
+                }
+            }
         }
-        printf("\n");
+
+        // Final do tempo
+        gettimeofday(&end, NULL);
+
+        // Tempo final
+        seconds = end.tv_sec - start.tv_sec;
+        useconds = end.tv_usec - start.tv_usec;
+        mtime = ((seconds) * 1000 + useconds/1000.0) + 0.5;
+
+        fprintf(file, "\xEF\xBB\xBF");
+        fprintf(file, "Tamanho da matriz, Tempo (milisegundos)\n");
+        fprintf(file, "%d, %lu\n", TAM_MATRIZ, mtime);
+
+        // Exibir tempo e matriz produto
+        printf("Tempo para a matriz: %d\n", TAM_MATRIZ);
+        printf("Tempo transcorrido: %lu milisegundos\n", mtime);
+
+        for (int row = 0; row < TAM_MATRIZ; row++) {
+            free(m1[row]);
+            free(m2[row]);
+            free(prod[row]);
+        }
+        free(m1);
+        free(m2);
+        free(prod);
     }
+    fclose(file);
 }
-
-
-
