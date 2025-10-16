@@ -2,11 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int TAM_MATRIZES[] = {10, 100, 1000};
+int num_tam = sizeof(TAM_MATRIZES) / sizeof(TAM_MATRIZES[0]);
+
 void main(void) {
     struct timeval start, end;
     long mtime, seconds, useconds;
-    int TAM_MATRIZES[] = {10, 100, 1000};
-    int num_tam = sizeof(TAM_MATRIZES) / sizeof(TAM_MATRIZES[0]);
 
     FILE *file = fopen("resultados paralelo.csv", "w");
     if(file == NULL){
