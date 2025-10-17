@@ -9,7 +9,7 @@ void main(void) {
     struct timeval start, end;
     long mtime, seconds, useconds;
 
-    FILE *file = fopen("resultados paralelo.csv", "w");
+    FILE *file = fopen("resultados sequêncial.csv", "w");
     if(file == NULL){
         printf("Erro ao abrir arquivo!");
     }
