@@ -16,7 +16,7 @@ Trabalho de Arquitetura de Computadores
 ```
 parallel-programming
 ├── .venv/              # Ambiente virtual python
-├── Codigos             # Códigos em C de programação sequencial, paralela e utlizando OpenMP. Contém os CSV dos resultados.
+├── Codigos             # Códigos em C de programação sequencial, paralela e utlizando OpenMP. Contém os CSV dos resultados utilizando 8 Threads.
 └── resultados.ipynb    # Resultados obtidos
 ```
 
