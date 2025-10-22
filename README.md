@@ -20,6 +20,8 @@ parallel-programming
 └── resultados.ipynb    # Resultados obtidos
 ```
 
+- Para comparação é possível visualizar o resultado feito em um computador com menos threads, apenas clicando {aqui](https://github.com/RaffaellaSantos/parallel-programming/tree/Teste_8_Threads)
+
 ## Configurar e executar
 
 ### Executar o OpenMP
@@ -30,7 +32,10 @@ gcc -fopenmp openmp.c -o openmp && ./openmp
 
 ### Ativar o ambiente virtual
 ```bash
-source .venv/bin/activate
+python3 -m venv .venv # Criar o ambiente
+source .venv/bin/activate # ativar o ambiente
+pip install --upgrade pip # Garantir que o pip está atualizado
+pip install ipykernel pandas numpy scipy matplotlib # Instala as bibliotecas necessárias para o projeto
 ```
 
 ## Recomendações
