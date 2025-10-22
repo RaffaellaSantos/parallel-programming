@@ -20,7 +20,7 @@ parallel-programming
 └── resultados.ipynb    # Resultados obtidos
 ```
 
-- Para comparação é possível visualizar o resultado feito em um computador com menos threads, apenas clicando {aqui](https://github.com/RaffaellaSantos/parallel-programming/tree/Teste_8_Threads)
+- Para comparação é possível visualizar o resultado feito em um computador com menos threads, apenas clicando [aqui](https://github.com/RaffaellaSantos/parallel-programming/tree/Teste_8_Threads)
 
 ## Configurar e executar
 
