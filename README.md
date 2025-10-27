@@ -41,3 +41,4 @@ pip install ipykernel pandas numpy scipy matplotlib # Instala as bibliotecas nec
 ## Recomendações
 
 * Use Linux.
+* Consulte as documentações do [OpenMP](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html) e da [sub-rotina sysconf](https://www.ibm.com/docs/pt-br/aix/7.3.0?topic=s-sysconf-subroutine)
