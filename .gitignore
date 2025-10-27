@@ -2,3 +2,9 @@
 Codigos/sequelprogramming
 Codigos/parallelprogramming
 Codigos/openmp
+.venv
+.venv/bin
+.venv/lib
+venv/
+venv/bin
+venv/lib
