@@ -43,6 +43,7 @@ nvcc -o parallelprogramming_cuda parallelprogramming_cuda.cu && ./parallelprogra
 * Sistema operacional: Microsoft Windows 11 Pro, Versão 10.0.26100
 * Driver: Driver Game Ready - 576.83 - Wed Apr 16, 2025
 * CPU: Intel(R) Core(TM) Ultra 7 155H
+* 11 cores (22 threads)
 * Memória RAM: 32.0 GB
 
 Placa gráfica
