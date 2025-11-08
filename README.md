@@ -15,12 +15,13 @@ Trabalho de Arquitetura de Computadores
 
 ```
 parallel-programming
-├── .venv/              # Ambiente virtual python
 ├── Codigos             # Códigos em C de programação sequencial, paralela e utlizando OpenMP. Contém os CSV dos resultados.
 └── resultados.ipynb    # Resultados obtidos
 ```
 
 - Para comparação é possível visualizar o resultado feito em um computador com menos threads, apenas clicando [aqui](https://github.com/RaffaellaSantos/parallel-programming/tree/Teste_8_Threads)
+
+- Para ver os resultados utilizando CUDA e como rodar clique [aqui](https://github.com/RaffaellaSantos/parallel-programming/tree/paralelo_cuda)
 
 ## Configurar e executar
 
