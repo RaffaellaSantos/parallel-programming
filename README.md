@@ -1,5 +1,5 @@
 # parallel-programming
-Implementar a multiplicação de matrizes com PThreads, OpenMP e CUDA.
+Implementar a multiplicação de matrizes com PThreads e OpenMP.
 
 ## Descrição da atividade
 Trabalho de Arquitetura de Computadores
