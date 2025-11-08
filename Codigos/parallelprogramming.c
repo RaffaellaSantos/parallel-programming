@@ -4,7 +4,7 @@
 # include <pthread.h>
 #include <unistd.h>
 
-int TAM_MATRIZES[] = {10, 20, 40, 80, 160, 320, 640, 1280};
+int TAM_MATRIZES[] = {10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120};
 int num_tam = sizeof(TAM_MATRIZES) / sizeof(TAM_MATRIZES[0]);
 
 // Informações para as threads

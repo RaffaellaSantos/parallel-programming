@@ -2,6 +2,7 @@
 Codigos/sequelprogramming
 Codigos/parallelprogramming
 Codigos/openmp
+Codigos/parallelprogramming_cuda
 .venv
 .venv/bin
 .venv/lib
